@@ -54,45 +54,70 @@ export default function Contact() {
       </div>
 
       {/* 🌙 SYMMETRY MODE */}
-      <div className="hidden dark:block text-center space-y-12">
-        <div className="space-y-4">
-          <h2 className="font-romantic text-7xl text-accent drop-shadow-[0_0_15px_rgba(196,167,231,0.3)]">Send a Signal</h2>
-          <p className="font-body text-xs opacity-60 uppercase tracking-[0.5em]">Into the vastness of the cosmos</p>
-        </div>
+{/* 🌙 SYMMETRY MODE: Added Email Field */}
+<div className="hidden dark:block text-center space-y-12">
+  <div className="space-y-4">
+    <h2 className="font-romantic text-7xl text-accent drop-shadow-[0_0_15px_rgba(196,167,231,0.3)]">
+      Send a Signal
+    </h2>
+    <p className="font-body text-xs opacity-60 uppercase tracking-[0.5em]">
+      Into the vastness of the cosmos
+    </p>
+  </div>
 
-        <form onSubmit={handleSubmit} className="space-y-10 max-lg mx-auto">
-          <div className="relative group">
-            <input name="name" required type="text" placeholder="YOUR NAME" className="w-full bg-white/[0.02] border-b border-white/40 p-5 focus:border-accent outline-none font-body text-center transition-all placeholder:text-white/30 placeholder:text-[9px] placeholder:tracking-[0.3em] hover:bg-white/[0.05]" />
-            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full group-focus-within:w-full shadow-[0_0_12px_#c4a7e7]" />
-          </div>
+  <form onSubmit={handleSubmit} className="space-y-10 max-w-lg mx-auto">
+    {/* NAME FIELD */}
+    <div className="relative group">
+      <input 
+        name="name" 
+        required 
+        type="text" 
+        placeholder="YOUR NAME" 
+        className="w-full bg-white/[0.02] border-b border-white/40 p-5 focus:border-accent outline-none font-body text-center transition-all placeholder:text-white/30 placeholder:text-[9px] placeholder:tracking-[0.3em] hover:bg-white/[0.05]" 
+      />
+      <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full group-focus-within:w-full shadow-[0_0_12px_#c4a7e7]" />
+    </div>
 
-          <div className="relative group">
-            <textarea name="message" required placeholder="YOUR MESSAGE..." rows={4} className="w-full bg-white/[0.02] border-b border-white/40 p-5 focus:border-accent outline-none font-body text-center transition-all placeholder:text-white/30 placeholder:text-[9px] placeholder:tracking-[0.3em] hover:bg-white/[0.05] resize-none" />
-            <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full group-focus-within:w-full shadow-[0_0_12px_#c4a7e7]" />
-          </div>
-          
-          <div className="flex flex-col items-center gap-8 pt-4">
-<motion.button 
-  type="submit"
-  disabled={status === "SENDING"}
-  whileHover={{ 
-    scale: 1.02, 
-    /* This creates the 'bloom' effect around the button without hiding the text */
-    boxShadow: "0px 0px 25px rgba(196, 167, 231, 0.4)",
-    borderColor: "rgba(196, 167, 231, 1)" 
-  }}
-  whileTap={{ scale: 0.98 }}
-  /* Removed hover:bg-accent to keep text visible */
-  className="px-20 py-5 rounded-full border border-accent/40 text-accent font-romantic text-3xl transition-all duration-300 disabled:opacity-30 bg-transparent"
->
-  {status === "SENDING" ? "Launching..." : "Launch into Orbit"}
-</motion.button>
-            <p className="text-[9px] opacity-40 uppercase tracking-[0.4em] italic text-accent">
-              {status === "SUCCESS" ? "Signal reached the stars." : status === "ERROR" ? "Uplink failed. Try again." : "Geometry in motion."}
-            </p>
-          </div>
-        </form>
-      </div>
+    {/* NEW EMAIL FIELD */}
+    <div className="relative group">
+      <input 
+        name="email" 
+        required 
+        type="email" 
+        placeholder="YOUR EMAIL" 
+        className="w-full bg-white/[0.02] border-b border-white/40 p-5 focus:border-accent outline-none font-body text-center transition-all placeholder:text-white/30 placeholder:text-[9px] placeholder:tracking-[0.3em] hover:bg-white/[0.05]" 
+      />
+      <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full group-focus-within:w-full shadow-[0_0_12px_#c4a7e7]" />
+    </div>
+
+    {/* MESSAGE FIELD */}
+    <div className="relative group">
+      <textarea 
+        name="message" 
+        required 
+        placeholder="YOUR MESSAGE..." 
+        rows={4} 
+        className="w-full bg-white/[0.02] border-b border-white/40 p-5 focus:border-accent outline-none font-body text-center transition-all placeholder:text-white/30 placeholder:text-[9px] placeholder:tracking-[0.3em] hover:bg-white/[0.05] resize-none" 
+      />
+      <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full group-focus-within:w-full shadow-[0_0_12px_#c4a7e7]" />
+    </div>
+    
+    <div className="flex flex-col items-center gap-8 pt-4">
+      <motion.button 
+        type="submit"
+        disabled={status === "SENDING"}
+        whileHover={{ scale: 1.02, boxShadow: "0px 0px 25px rgba(196, 167, 231, 0.4)", borderColor: "rgba(196, 167, 231, 1)" }}
+        whileTap={{ scale: 0.98 }}
+        className="px-20 py-5 rounded-full border border-accent/40 text-accent font-romantic text-3xl transition-all duration-300 disabled:opacity-30 bg-transparent"
+      >
+        {status === "SENDING" ? "Launching..." : "Launch into Orbit"}
+      </motion.button>
+      <p className="text-[9px] opacity-40 uppercase tracking-[0.4em] italic text-accent">
+        {status === "SUCCESS" ? "Signal reached the stars." : status === "ERROR" ? "Uplink failed. Try again." : "Geometry in motion."}
+      </p>
+    </div>
+  </form>
+</div>
     </section>
   );
 }
