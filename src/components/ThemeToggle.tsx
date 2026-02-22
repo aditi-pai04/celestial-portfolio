@@ -3,52 +3,51 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
+import { Terminal, Orbit } from "lucide-react";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Wait until mounted to avoid hydration errors
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div className="w-12 h-12" />; // placeholder
+  if (!mounted) return <div className="w-44 h-11" />;
 
   const isDark = theme === "dark";
 
   return (
-    <button
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex items-center justify-center w-12 h-12 rounded-full overflow-hidden hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-500 ring-1 ring-black/10 dark:ring-white/10"
-      aria-label="Toggle theme"
-    >
-      <motion.div
-        initial={false}
-        animate={{
-          rotate: isDark ? 0 : -90,
-          scale: isDark ? 1 : 0,
-          opacity: isDark ? 1 : 0,
-        }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        /* Changed to absolute and perfectly centered */
-        className="absolute inset-0 flex items-center justify-center" 
+    <div className="flex flex-col items-end gap-2 group">
+      <button
+        onClick={() => setTheme(isDark ? "light" : "dark")}
+        className="relative flex items-center bg-black/5 dark:bg-white/5 w-44 h-11 rounded-full p-1 border border-black/10 dark:border-white/10 transition-all duration-500 hover:border-accent"
+        aria-label="Switch Personality"
       >
-        <Moon className="w-5 h-5 text-[#c4a7e7]" strokeWidth={2} />
-      </motion.div>
+        {/* The Sliding Personality Capsule */}
+        <motion.div
+          animate={{ x: isDark ? 84 : 0 }} // Precise landing for 44w button
+          transition={{ type: "spring", stiffness: 400, damping: 35 }}
+          className="absolute w-[86px] h-9 bg-white dark:bg-accent rounded-full shadow-md z-0"
+        />
 
-      <motion.div
-        initial={false}
-        animate={{
-          rotate: isDark ? 90 : 0,
-          scale: isDark ? 0 : 1,
-          opacity: isDark ? 0 : 1,
-        }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        /* Changed to absolute and perfectly centered */
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <Sun className="w-5 h-5 text-[#0055ff]" strokeWidth={2} />
-      </motion.div>
-    </button>
+        {/* Labels & Icons - Perfectly Centered in their halves */}
+        <div className="relative flex w-full z-10 pointer-events-none">
+          {/* Light: Engineer Side */}
+          <div className={`flex-1 flex items-center justify-center gap-2 transition-all duration-500 ${!isDark ? 'text-black' : 'text-white/20'}`}>
+            <Terminal size={14} strokeWidth={!isDark ? 2.5 : 1.5} />
+            <span className="text-[10px] font-bold uppercase tracking-tighter">Systems</span>
+          </div>
+
+          {/* Dark: Artist Side */}
+          <div className={`flex-1 flex items-center justify-center gap-2 transition-all duration-500 ${isDark ? 'text-black' : 'text-black/20'}`}>
+            <span className="text-[10px] font-bold uppercase tracking-tighter">Orbit</span>
+            <Orbit size={14} strokeWidth={isDark ? 2.5 : 1.5} />
+          </div>
+        </div>
+      </button>
+
+      <p className="text-[8px] mr-4 uppercase tracking-widest opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+        Initiating Context Swap...
+      </p>
+    </div>
   );
 }

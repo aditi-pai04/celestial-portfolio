@@ -51,7 +51,7 @@ export default function Contact() {
             className="w-full bg-white/5 border-b border-white/20 p-4 focus:border-accent outline-none font-body text-center transition-all"
           />
           <motion.button 
-            whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(196, 167, 231, 0.4)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(196, 167, 231, 0.23)" }}
             className="px-12 py-3 rounded-full border border-accent text-accent font-romantic text-3xl hover:bg-accent hover:text-white transition-all"
           >
             Launch into Orbit

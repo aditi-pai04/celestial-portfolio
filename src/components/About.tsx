@@ -49,7 +49,7 @@ export default function About() {
             is my canvas, and software is simply my medium.
           </p>
           <p className="font-romantic text-3xl pt-4 text-accent/80">
-            "We are made of star-stuff, and logic."
+            "The universe is under no obligation to make sense to you."
           </p>
         </div>
       </div>
