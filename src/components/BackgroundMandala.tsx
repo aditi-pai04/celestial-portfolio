@@ -10,8 +10,17 @@ export default function BackgroundMandala() {
         animate={{ rotate: 360 }}
         transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
       >
-        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.05" strokeDasharray="1 1" opacity="0.2"/>
-        
+        <circle
+          cx="50"
+          cy="50"
+          r="48"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.05"
+          strokeDasharray="1 1"
+          opacity="0.2"
+        />
+
         {/* Creating 24 points of symmetry for a denser mandala */}
         {[...Array(24)].map((_, i) => (
           <g key={i} transform={`rotate(${i * 15} 50 50)`}>
@@ -23,7 +32,15 @@ export default function BackgroundMandala() {
               strokeWidth="0.12"
             />
             {/* Inner Intricate Loops */}
-            <circle cx="50" cy="25" r="8" fill="none" stroke="currentColor" strokeWidth="0.08" opacity="0.5"/>
+            <circle
+              cx="50"
+              cy="25"
+              r="8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="0.08"
+              opacity="0.5"
+            />
             <path
               d="M50 35 L52 45 L50 48 L48 45 Z"
               fill="none"

@@ -24,22 +24,30 @@ export default function ThemeToggle() {
       >
         {/* The Sliding Personality Capsule */}
         <motion.div
-          animate={{ x: isDark ? 84 : 0 }} // Precise landing for 44w button
+          animate={{ x: isDark ? 84 : 0 }}
           transition={{ type: "spring", stiffness: 400, damping: 35 }}
           className="absolute w-[86px] h-9 bg-white dark:bg-accent rounded-full shadow-md z-0"
         />
 
-        {/* Labels & Icons - Perfectly Centered in their halves */}
+        {/* Labels & Icons*/}
         <div className="relative flex w-full z-10 pointer-events-none">
-          {/* Light: Engineer Side */}
-          <div className={`flex-1 flex items-center justify-center gap-2 transition-all duration-500 ${!isDark ? 'text-black' : 'text-white/20'}`}>
+          {/* Light*/}
+          <div
+            className={`flex-1 flex items-center justify-center gap-2 transition-all duration-500 ${!isDark ? "text-black" : "text-white/20"}`}
+          >
             <Terminal size={14} strokeWidth={!isDark ? 2.5 : 1.5} />
-            <span className="text-[10px] font-bold uppercase tracking-tighter">Systems</span>
+            <span className="text-[10px] font-bold uppercase tracking-tighter">
+              Systems
+            </span>
           </div>
 
-          {/* Dark: Artist Side */}
-          <div className={`flex-1 flex items-center justify-center gap-2 transition-all duration-500 ${isDark ? 'text-black' : 'text-black/20'}`}>
-            <span className="text-[10px] font-bold uppercase tracking-tighter">Orbit</span>
+          {/* Dark*/}
+          <div
+            className={`flex-1 flex items-center justify-center gap-2 transition-all duration-500 ${isDark ? "text-black" : "text-black/20"}`}
+          >
+            <span className="text-[10px] font-bold uppercase tracking-tighter">
+              Orbit
+            </span>
             <Orbit size={14} strokeWidth={isDark ? 2.5 : 1.5} />
           </div>
         </div>

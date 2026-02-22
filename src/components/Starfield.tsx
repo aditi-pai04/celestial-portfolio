@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Starfield() {
-  const [stars, setStars] = useState<{ id: number; top: string; left: string; size: string; delay: number }[]>([]);
+  const [stars, setStars] = useState<
+    { id: number; top: string; left: string; size: string; delay: number }[]
+  >([]);
 
   useEffect(() => {
     // Generate star data ONLY on the client after mount
@@ -19,7 +21,9 @@ export default function Starfield() {
 
   // Return null or empty div if stars haven't been generated yet (prevents mismatch)
   if (stars.length === 0) {
-    return <div className="fixed inset-0 z-[-1] pointer-events-none hidden dark:block" />;
+    return (
+      <div className="fixed inset-0 z-[-1] pointer-events-none hidden dark:block" />
+    );
   }
 
   return (

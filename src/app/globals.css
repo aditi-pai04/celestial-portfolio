@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 @import "tailwindcss";
 
 /* Enable class-based dark mode */
@@ -11,23 +11,23 @@
 @tailwind utilities;
 
 @layer base {
-  /* ☀️ Light Mode: The Unhinged Engineer */
+  /*Light Mode*/
   :root {
-    --background: #ffffff; 
-    --foreground: #000000; 
-    --accent: #0055ff; 
-    
+    --background: #ffffff;
+    --foreground: #000000;
+    --accent: #0055ff;
+
     /* Assigning Engineer Fonts */
     --font-heading: var(--font-space);
     --font-body: var(--font-jetbrains);
   }
 
-  /* 🌙 Dark Mode: The Celestial Canvas */
+  /*Dark Mode*/
   .dark {
-    --background: #0a0b10; 
-    --foreground: #f0f0f0; 
-    --accent: #c4a7e7; 
-    
+    --background: #0a0b10;
+    --foreground: #f0f0f0;
+    --accent: #c4a7e7;
+
     /* Assigning Artist Fonts */
     --font-heading: var(--font-cormorant);
     --font-body: var(--font-outfit);
@@ -39,24 +39,31 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-jetbrains), monospace !important;
-  transition: background-color 0.7s ease, color 0.7s ease;
+  transition:
+    background-color 0.7s ease,
+    color 0.7s ease;
 }
 
-h1, h2, h3, .font-heading {
+h1,
+h2,
+h3,
+.font-heading {
   font-family: var(--font-space), system-ui, sans-serif !important;
 }
 
-/* 2. Dark Mode Fonts (The Art Lover) */
+/* 2. Dark Mode Fonts*/
 html.dark body {
   font-family: var(--font-outfit), sans-serif !important;
 }
 
-html.dark h1, html.dark h2, html.dark h3, html.dark .font-heading {
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark .font-heading {
   font-family: var(--font-cormorant), Georgia, serif !important;
 }
 
-/* Add this at the very bottom of the file */
 .font-romantic {
-  font-family: 'Great Vibes', cursive !important;
+  font-family: "Great Vibes", cursive !important;
   font-weight: 400;
 }

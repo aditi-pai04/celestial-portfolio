@@ -17,14 +17,14 @@ export default function ProjectCard({ project }: { project: any }) {
   return (
     <motion.div
       // Deep Space Wobble (Dark Mode Only)
-      animate={{ 
+      animate={{
         y: [0, drift.y, 0],
-        rotate: [0, drift.rotate, 0]
+        rotate: [0, drift.rotate, 0],
       }}
-      transition={{ 
-        duration: drift.duration, 
-        repeat: Infinity, 
-        ease: "easeInOut" 
+      transition={{
+        duration: drift.duration,
+        repeat: Infinity,
+        ease: "easeInOut",
       }}
       className="group relative p-8 border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 backdrop-blur-md transition-all duration-700 rounded-none dark:rounded-[3rem] hover:border-accent hover:shadow-[0_0_30px_rgba(196,167,231,0.2)]"
     >
@@ -46,7 +46,10 @@ export default function ProjectCard({ project }: { project: any }) {
 
         <div className="flex gap-2 pt-4">
           {project.tech.map((t: string) => (
-            <span key={t} className="text-[10px] border border-black/20 dark:border-white/20 px-2 py-1 uppercase tracking-tighter">
+            <span
+              key={t}
+              className="text-[10px] border border-black/20 dark:border-white/20 px-2 py-1 uppercase tracking-tighter"
+            >
               {t}
             </span>
           ))}
