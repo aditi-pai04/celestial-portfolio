@@ -16,8 +16,8 @@ const cormorant = Cormorant_Garamond({
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Aditi N Pai | Software Engineer & Creative",
-  description: "Portfolio of Aditi N Pai",
+  title: "Aditi N Pai | Systems Engineer & Mandala Artist",
+  description: "A dual-personality portfolio: High-performance systems by day, geometric meditations by night.",
 };
 
 export default function RootLayout({
