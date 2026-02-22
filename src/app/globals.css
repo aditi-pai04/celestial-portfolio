@@ -1,26 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
+  /* ☀️ Light Mode: The Unhinged Engineer */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff; 
+    --foreground: #000000; 
+    --accent: #0055ff; 
+    
+    /* Assigning Engineer Fonts */
+    --font-heading: var(--font-space);
+    --font-body: var(--font-jetbrains);
+  }
+
+  /* 🌙 Dark Mode: The Celestial Canvas */
+  .dark {
+    --background: #0a0b10; 
+    --foreground: #f0f0f0; 
+    --accent: #c4a7e7; 
+    
+    /* Assigning Artist Fonts */
+    --font-heading: var(--font-cormorant);
+    --font-body: var(--font-outfit);
   }
 }
 
+/* 1. Default (Light Mode) Fonts */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jetbrains), monospace !important;
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+h1, h2, h3, .font-heading {
+  font-family: var(--font-space), system-ui, sans-serif !important;
+}
+
+/* 2. Dark Mode Fonts (The Art Lover) */
+html.dark body {
+  font-family: var(--font-outfit), sans-serif !important;
+}
+
+html.dark h1, html.dark h2, html.dark h3, html.dark .font-heading {
+  font-family: var(--font-cormorant), Georgia, serif !important;
+}
+
+/* Add this at the very bottom of the file */
+.font-romantic {
+  font-family: 'Great Vibes', cursive !important;
+  font-weight: 400;
 }
